@@ -1,0 +1,61 @@
+# config.toml, ~/AppData/Roaming/helix/ on windows, ~/.config/helix/ on linux
+theme = "mytheme"
+
+[editor]
+line-number = "relative" # I'm trying this out even though it's new for me
+mouse = true
+auto-pairs = false # defaults to true
+color-modes = true # little color indicators for what mode you're in
+cursorline = true # highlight the line the cursor is on
+bufferline = "multiple" # show something at the top to indicate multiple buffers are open
+auto-format = false # whether to autoformat on save
+
+[editor.file-picker]
+hidden = false # show hidden files or don't in the file-picker
+
+[editor.soft-wrap]
+enable=true
+
+[keys.insert]
+j = { k = "normal_mode" } # maps `jk` to exit insert mode
+k = { j = "normal_mode" } # maps `kj` to exit insert mode
+
+[keys.select]
+o = "flip_selections" # default is Alt-; while o is used by vim and more ergonomic
+
+# [editor.whitespace]
+# render = "all"
+# or control each character
+[editor.whitespace.render]
+space = "none"
+tab = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = " " # Tabs will look like "→   " (depending on tab width)
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "|" # Some characters that work well: "▏", "┆", "┊", "⸽" "╎"
+
+[editor.statusline]
+# these are the defaults
+#left = ["mode", "spinner", "file-name"]
+#right = ["diagnostics", "selections", "position", "file-encoding"]
+# by default the center one has nothing
+left = ["mode", "diagnostics", "spinner", "file-type", "file-line-ending"]
+center = ["position-percentage", "position"]
+right = ["selections", "file-name", "file-encoding"]
+separator = '|'
+#spacer = '=' # this is in the documentation but doesn't work
+#just a test for line ending changes
+

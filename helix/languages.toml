@@ -1,0 +1,23 @@
+[[language]]
+name = "javascript"
+auto-format = true
+scope = "source.js"
+injection-regex = "(js|javascript)"
+file-types = ["mjs", "cjs", "js"]
+shebangs = ["node"]
+roots = []
+comment-token = "//"
+#language-servers = { command = "typescript-language-server", args = ["--stdio"], language-id = "javascript" }
+indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "css"
+scope = "source.css"
+injection-regex = "css"
+file-types = ["css", "scss"]
+roots = []
+#language-servers = { command = "vscode-css-language-server", args = ["--stdio"] }
+auto-format = true
+#config = { "provideFormatter" = true }
+indent = { tab-width = 4, unit = "\t" }
+
