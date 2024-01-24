@@ -1,0 +1,4 @@
+" _gvimrc or .gvimrc, these settings only apply to gui mode
+colorscheme slate
+set guifont=Consolas:h11
+"set linespace=-5 " this is an issue particular to Inconsolata NFM

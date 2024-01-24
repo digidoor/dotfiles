@@ -1,0 +1,38 @@
+" Vim init file. Either .vimrc or _vimrc
+" remember that :noh clears search highlighting
+let mapleader = " "
+nnoremap <Leader>w <C-W>
+inoremap jk <Esc>
+inoremap kj <Esc>
+" navigate lines visually instead of logically
+nnoremap j gj
+nnoremap k gk
+
+let g:C_Ctrl_j = 'off'
+"unmap <C-J>
+"unmap <C-K>
+noremap <C-J> <C-E>
+noremap <C-K> <C-Y>
+
+set nocompatible
+set nu " line numbers
+set ruler " row and column indicator in the bottom right
+set backspace=indent,eol,start " can backspace over things
+set autoread " reload files that have changed automatically
+set linebreak " try not to break in the middle of words
+set showbreak=… " in Insert, press Ctrl+K then ',' then '.' for …
+set vb " visual bell
+"set dg " allow the input of digraphs by char<BS>char
+"set background=dark
+"set undodir = ~/.vim/undodir " might interfere with bash vim
+"set undofile " use an undo file
+
+" Syntax coloring on when possible
+if &t_Co > 2 || has("gui_running")
+	syntax on
+endif
+
+set ssop-=options " do not store global and local vars
+set ssop-=folds " do not store folds
+
+set fileformats=unix,dos " prefer unix end of lines
