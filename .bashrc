@@ -14,6 +14,7 @@ alias hx=helix
 alias cat=lolcat
 alias view='vim -R'
 alias which='alias | which -i'
+alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
 alias b='cd ${OLDPWD}'
 ################ aliases for Arch or Arch-based distros ########################
 #alias pacdiff=eos-pacdiff
@@ -22,7 +23,7 @@ alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit | s
 EDITOR=vim
 
 [[ "$(whoami)" = "root" ]] && return
-
+# PS1='[\u@\h \W]\$ '
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100   # limits recursive functions, see 'man bash'
 
 ## Use the up and down arrow keys for finding a command in history
@@ -31,10 +32,10 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 _open_files_for_editing() {
-    # Open any given document file(s) for editing (or just viewing).
-    # Note1: - Do not use for executable files!
-    # Note2: - Uses 'mime' bindings, so you may need to use
-    #          e.g. a file manager to make proper file bindings.
+#    # Open any given document file(s) for editing (or just viewing).
+#    # Note1: - Do not use for executable files!
+#    # Note2: - Uses 'mime' bindings, so you may need to use
+#    #          e.g. a file manager to make proper file bindings.
     if [ -x /usr/bin/exo-open ] ; then
         echo "exo-open $@" >&2
         setsid exo-open "$@" >& /dev/null
