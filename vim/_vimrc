@@ -1,27 +1,39 @@
 " Vim init file. Either .vimrc or _vimrc
 " remember that :noh clears search highlighting
+set nocompatible mouse=a
+let g:netrw_liststyle = 3
 let mapleader = " "
 nnoremap <Leader>w <C-W>
+nnoremap <Leader>f :Lex<CR>
+nnoremap <Leader>l :set list!<CR>
+nnoremap <F11> :e $MYVIMRC<CR>
+nnoremap <F12> :so $MYVIMRC<CR>
+
+xnoremap <Leader>p "_dP
+let g:C_Ctrl_j = 'off' "necessary for ^J remap to work; some compat thing
+noremap <C-J> <C-E>
+noremap <C-K> <C-Y>
 inoremap jk <Esc>
 inoremap kj <Esc>
-" navigate lines visually instead of logically
 nnoremap j gj
 nnoremap k gk
 
-let g:C_Ctrl_j = 'off'
-"unmap <C-J>
-"unmap <C-K>
-noremap <C-J> <C-E>
-noremap <C-K> <C-Y>
+"set F6 to undelete the most recently deleted buffer
+autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
+noremap <F6> :split <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 
-set nocompatible
-set nu " line numbers
-set ruler " row and column indicator in the bottom right
-set backspace=indent,eol,start " can backspace over things
-set autoread " reload files that have changed automatically
-set linebreak " try not to break in the middle of words
-set showbreak=… " in Insert, press Ctrl+K then ',' then '.' for …
-set vb " visual bell
+set number "you like line numbers. you always have "nu for short
+set ruler "row and column indicator in the bottom right "ru for short
+set backspace=indent,eol,start "can backspace over most things "bs for short
+set autoread "autoreload any changes to the file "ar for short
+set lcs=tab:<->,multispace:!,leadmultispace:.,trail:_,extends:>,precedes:<,nbsp:+
+set noexpandtab copyindent preserveindent smartindent 
+set softtabstop=0 shiftwidth=4 tabstop=4
+set linebreak "try not to break in the middle of words
+set showbreak=… "in Insert, press Ctrl+K then ',' then '.' for …
+set visualbell splitbelow splitright
+"set foldmethod=syntax "folding by default gets really annoying
+"set list "show a variety of whitespace characters
 "set dg " allow the input of digraphs by char<BS>char
 "set background=dark
 "set undodir = ~/.vim/undodir " might interfere with bash vim
@@ -32,7 +44,5 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 endif
 
-set ssop-=options " do not store global and local vars
-set ssop-=folds " do not store folds
-
+set sessionoptions+=options "for saving sessions
 set fileformats=unix,dos " prefer unix end of lines
