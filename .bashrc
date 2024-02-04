@@ -16,6 +16,7 @@ alias view='vim -R'
 alias which='alias | which -i'
 alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
 alias b='cd ${OLDPWD}'
+alias dte='date +"%A %B %d %I:%M %p %Y"'
 ################ aliases for Arch or Arch-based distros ########################
 #alias pacdiff=eos-pacdiff
 alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit | sort -k2 | cut -f1,3"

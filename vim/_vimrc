@@ -38,6 +38,7 @@ set visualbell splitbelow splitright
 "set background=dark
 "set undodir = ~/.vim/undodir " might interfere with bash vim
 "set undofile " use an undo file
+"set shellcmdflag=-ic "make interactive so :r!somealias works
 
 " Syntax coloring on when possible
 if &t_Co > 2 || has("gui_running")
