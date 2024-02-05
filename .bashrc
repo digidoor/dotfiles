@@ -21,7 +21,7 @@ alias dte='date +"%A %B %d %I:%M %p %Y"'
 #alias pacdiff=eos-pacdiff
 alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit | sort -k2 | cut -f1,3"
 
-EDITOR=vim
+export EDITOR=vim
 
 [[ "$(whoami)" = "root" ]] && return
 # PS1='[\u@\h \W]\$ '
@@ -33,10 +33,7 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 _open_files_for_editing() {
-#    # Open any given document file(s) for editing (or just viewing).
-#    # Note1: - Do not use for executable files!
-#    # Note2: - Uses 'mime' bindings, so you may need to use
-#    #          e.g. a file manager to make proper file bindings.
+# Uses 'mime' bindings
     if [ -x /usr/bin/exo-open ] ; then
         echo "exo-open $@" >&2
         setsid exo-open "$@" >& /dev/null
@@ -54,3 +51,12 @@ _open_files_for_editing() {
 ## Alias for the function above.
 alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 
+man() {
+LESS_TERMCAP_md=$'\e[01;31m' \
+LESS_TERMCAP_me=$'\e[0m' \
+LESS_TERMCAP_us=$'\e[01;32m' \
+LESS_TERMCAP_ue=$'\e[0m' \
+LESS_TERMCAP_so=$'\e[45;93m' \
+LESS_TERMCAP_se=$'\e[0m' \
+command man "$@"
+}
