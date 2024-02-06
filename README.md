@@ -18,6 +18,7 @@ _vimrc and _gvimrc should go in ~ or somewhere in the runtime.
 ~/AppData/Local/nvim/
 #### Linux
 ~~Not sure, but something like `:echo $MYVIMRC` should work.~~
+
 ~/.config/nvim/
 ## JPEGView
 ~/AppData/Roaming/JPEGView/
