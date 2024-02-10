@@ -26,7 +26,7 @@ set number "you like line numbers. you always have "nu for short
 set ruler "row and column indicator in the bottom right "ru for short
 set backspace=indent,eol,start "can backspace over most things "bs for short
 set autoread "autoreload any changes to the file "ar for short
-set lcs=tab:<->,multispace:!,leadmultispace:.,trail:_,extends:>,precedes:<,nbsp:+
+set listchars=tab:<->,multispace:!,leadmultispace:.,trail:_,extends:>,precedes:<,nbsp:+,eol:⏎
 set noexpandtab copyindent preserveindent smartindent 
 set softtabstop=0 shiftwidth=4 tabstop=4
 set linebreak "try not to break in the middle of words
