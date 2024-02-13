@@ -14,6 +14,8 @@ alias lf=lfcd
 alias hx=helix
 alias cat=lolcat
 alias view='vim -R'
+alias svim='sudo vim'
+alias r=ranger
 alias ranger='source ranger'
 alias which='alias | which -i'
 alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
@@ -21,7 +23,7 @@ alias b='cd ${OLDPWD}'
 alias dte='date +"%A %B %d %I:%M %p %Y"'
 ################ aliases for Arch or Arch-based distros ########################
 #alias pacdiff=eos-pacdiff
-alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit | sort -k2 | cut -f1,3"
+alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit | sort -k4 | cut -f1,3"
 
 lfcd () {
 	# `command` is needed in case `lfcd` is aliased to `lf`
