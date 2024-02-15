@@ -3,4 +3,5 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # export QT_STYLE_OVERRIDE=kvantum
 
 # Other environment stuff
-export BROWSER=vivaldi
+#export BROWSER=vivaldi
+export BROWSER=falkon
