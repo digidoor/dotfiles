@@ -15,19 +15,19 @@ noremap <C-J> <C-E>
 noremap <C-K> <C-Y>
 inoremap jk <Esc>
 inoremap kj <Esc>
-nnoremap j gj
-nnoremap k gk
+noremap j gj
+noremap k gk
 
 "set F6 to undelete the most recently deleted buffer
 autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
 noremap <F6> :split <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 
-set showcmd "show keys pressed so far in the lower right in mid-command
+set showcmd "show keys pressed so far in the lower right mid-command
 set number "you like line numbers. you always have "nu for short
 set ruler "row and column indicator in the bottom right "ru for short
 set backspace=indent,eol,start "can backspace over most things "bs for short
 set autoread "autoreload any changes to the file "ar for short
-set listchars=tab:<->,multispace:!,leadmultispace:.,trail:_,extends:>,precedes:<,nbsp:+,eol:⏎
+set lcs=tab:<->,multispace:!,leadmultispace:.,trail:_,extends:>,precedes:<,nbsp:+,eol:⏎
 set noexpandtab copyindent preserveindent smartindent 
 set softtabstop=0 shiftwidth=4 tabstop=4
 set linebreak "try not to break in the middle of words
@@ -53,4 +53,4 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 set sessionoptions+=options "for saving sessions
-set fileformats=unix,dos " prefer unix end of lines
+set fileformats=unix,dos " prefer unix line endings

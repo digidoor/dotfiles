@@ -15,13 +15,14 @@ alias hx=helix
 alias cat=lolcat
 alias view='vim -R'
 alias svim='sudo vim'
+alias please='sudo $(fc -ln -1)'
 alias b='cd ${OLDPWD}'
 alias diff='diff --color'
+alias vless='~/.vim/less.sh'
 alias r=ranger
 alias ranger='source ranger'
 alias which='alias | which -i'
 alias dte='date +"%A %B %d %I:%M %p %Y"'
-alias vless='~/.vim/less.sh'
 alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
 ################ aliases for Arch or Arch-based distros ########################
 alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit |

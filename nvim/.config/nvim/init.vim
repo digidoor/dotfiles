@@ -1,13 +1,13 @@
 " Neovim init file. Likely in ~/AppData/Local/nvim/init.vim
 " you always forget that :noh turns off highlighting of the last search
-set nocompatible mouse=a
+set nocompatible mouse=a wildmenu incsearch
 let g:netrw_liststyle = 3
 let mapleader = " "
 nnoremap <Leader>w <C-W>
 nnoremap <Leader>f :Lex<CR>
 nnoremap <Leader>l :set list!<CR>
-nnoremap <F11> :e $MYVIMRC<CR>
-nnoremap <F12> :so $MYVIMRC<CR>
+nnoremap <F4> :e $MYVIMRC<CR>
+nnoremap <F8> :so $MYVIMRC<CR>
 " paste over things wihout overwriting the yank buffer
 xnoremap <Leader>p "_dP
 let g:C_Ctrl_j = 'off' "necessary for ^J remap to work; some compat thing
@@ -22,11 +22,12 @@ noremap k gk
 autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
 noremap <F6> :split <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 
+set showcmd "show keys pressed so far in the lower right mid-command
 set number "you like line numbers. you always have "nu for short
 set ruler "row and column indicator in the bottom right "ru for short
 set backspace=indent,eol,start "can backspace over most things "bs for short
 set autoread "autoreload any changes to the file "ar for short
-set lcs=tab:<->,multispace:!,leadmultispace:.,trail:_,extends:>,precedes:<,nbsp:+
+set lcs=tab:<->,multispace:!,leadmultispace:.,trail:_,extends:>,precedes:<,nbsp:+,eol:⏎
 set noexpandtab copyindent preserveindent smartindent 
 set softtabstop=0 shiftwidth=4 tabstop=4
 set linebreak "try not to break in the middle of words
@@ -36,13 +37,17 @@ set visualbell splitbelow splitright
 "set list "show a variety of whitespace characters
 "set dg " allow the input of digraphs by char<BS>char
 "set background=dark
-"set undodir = ~/.vim/undodir " might interfere with bash vim
-"set undofile " use an undo file
+"set undodir=~/.vim/undodir "default location is better in .cache
+"set undofile "use an undo file; serious pros and cons
 
 "try to fix nvim external commands it bash4windows/gitbash-spawned nvim
 "if &shell =~? 'sh\.exe'
 	set shellcmdflag=-c
 "endif
+"creates a command to diff the saved file with the modified buffer; very useful
+command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+	\ | wincmd p | diffthis
+"^ if the first nonwsp char is '\', treat it as a continuation of the prv line
 
 " MISCELLANEOUS GOODIES
 " :verbose set tw? --> discover what autowrap lengths that faghag bram has set
@@ -78,9 +83,11 @@ if exists('g:neovide')
 	:cd ~
 endif
 
+" Syntax coloring on when possible
 if &t_Co > 2 || has("gui_running")
 	syntax on
+	set hlsearch
 endif
 
 set sessionoptions+=options "for saving sessions
-set fileformats=unix,dos
+set fileformats=unix,dos " prefer unix line endings
