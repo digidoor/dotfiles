@@ -8,9 +8,9 @@ if test -t 1; then
       echo "Missing filename" 1>&2
       exit
     fi
-    vim --cmd 'let no_plugin_maps = 1' -c 'source ~/.vim/less.vim' -
+    nvim --cmd 'let no_plugin_maps = 1' -c 'source ~/.config/nvim/less.vim' -
   else
-    vim --cmd 'let no_plugin_maps = 1' -c 'source ~/.vim/less.vim' "$@"
+    nvim --cmd 'let no_plugin_maps = 1' -c 'source ~/.config/nvim/less.vim' "$@"
   fi
 else
   # Output is not a terminal, cat arguments or stdin

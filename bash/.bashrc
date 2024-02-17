@@ -11,24 +11,25 @@ alias la='ls -Av --color=auto --group-directories-first'
 alias ll='ls -lhv --color=auto --group-directories-first'
 alias lla='ls -lhAv --color=auto --group-directories-first'
 alias lf=lfcd
+alias vim=nvim
 alias hx=helix
 alias cat=lolcat
-alias view='vim -R'
-alias svim='sudo vim'
-alias please='sudo $(fc -ln -1)'
+alias view='nvim -R'
+alias svim='sudo nvim'
 alias b='cd ${OLDPWD}'
 alias diff='diff --color'
-alias vless='~/.vim/less.sh'
 alias r=ranger
 alias ranger='source ranger'
 alias which='alias | which -i'
+alias please='sudo $(fc -ln -1)'
+alias vless='~/.config/nvim/less.sh'
 alias dte='date +"%A %B %d %I:%M %p %Y"'
 alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
 ################ aliases for Arch or Arch-based distros ########################
 alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit |
 	sort -k4 | cut -f1,3"
 
-lfcd () {
+lfcd () { # enables cd to last lf directory on exit
 	# `command` is needed in case `lfcd` is aliased to `lf`
 	cd "$(command lf -print-last-dir "$@")"
 }
@@ -40,6 +41,7 @@ bind '"\e[B":history-search-forward'
 
 export EDITOR=vim
 export GROFF_NO_SGR=1  # This is necessary to get colors in less
+export RANGER_LOAD_DEFAULT_RC=FALSE
 
 [[ "$(whoami)" = "root" ]] && return
 # PS1='[\u@\h \W]\$ '
