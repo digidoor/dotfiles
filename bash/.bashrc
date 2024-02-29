@@ -29,6 +29,10 @@ alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
 alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit |
 	sort -k4 | cut -f1,3"
 
+cd() {
+	builtin cd "$@" && l
+}
+
 lfcd () { # enables cd to last lf directory on exit
 	# `command` is needed in case `lfcd` is aliased to `lf`
 	cd "$(command lf -print-last-dir "$@")"
