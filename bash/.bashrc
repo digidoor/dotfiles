@@ -5,11 +5,14 @@
 
 [[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
 
-alias l='ls -v --color=auto --group-directories-first'
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
 alias ls='ls -v --color=auto --group-directories-first'
-alias la='ls -Av --color=auto --group-directories-first'
-alias ll='ls -lhv --color=auto --group-directories-first'
-alias lla='ls -lhAv --color=auto --group-directories-first'
+alias l='ls'
+alias la='ls -A'
+alias ll='ls -lh'
+alias lla='ls -lhA'
 alias lf=lfcd
 alias vim=nvim
 alias hx=helix
@@ -20,10 +23,13 @@ alias b='cd ${OLDPWD}'
 alias diff='diff --color'
 alias r=ranger
 alias ranger='source ranger'
+alias grep='grep --color=auto'
 alias which='alias | which -i'
 alias please='sudo $(fc -ln -1)'
+alias pls='sudo $(fc -ln -1)'
 alias vless='~/.config/nvim/less.sh'
 alias dte='date +"%A %B %d %I:%M %p %Y"'
+alias dmesg='sudo dmesg -H --color=always | less'
 alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
 ################ aliases for Arch or Arch-based distros ########################
 alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit |
