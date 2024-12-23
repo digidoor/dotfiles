@@ -2,6 +2,7 @@
 " you always forget that :noh turns off highlighting of the last search
 set nocompatible mouse=a wildmenu incsearch
 let g:netrw_liststyle = 3
+nnoremap <Space> <NOP>
 let mapleader = " "
 nnoremap <Leader>w <C-W>
 nnoremap <Leader>f :Lex<CR>
