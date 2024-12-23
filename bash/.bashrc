@@ -76,7 +76,13 @@ _open_files_for_editing() {
 ## Alias for the function above.
 alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 
-
 source ~/.git-prompt.sh
-PS1='\e[91;5m$?\e[0m\e[90;1m|\e[96m\u\e[37m@\e[96m\h \e[34m\w\e[35m$(__git_ps1 ) \e[93;1m\\$\e[0m\n'
+exit_status() {
+	local e=$?
+	if [ $e -ne 0 ]; then
+		echo -en "\e[91;5m$e\e[0m\e[90m|\e[0m"
+	fi
+}
+#PS1='$(exit_status)\e[96;1m\u\e[0m@\e[96;1m\h \e[34m\w\e[0m\e[35m$(__git_ps1 ) \e[93;1m\\$\e[0m\n'
+PROMPT_COMMAND='exit_status; PS1="\e[96;1m\u\e[0m@\e[96;1m\h \e[34m\w\e[0m\e[35m$(__git_ps1 ) \e[93;1m\\$\e[0m\n"'
 

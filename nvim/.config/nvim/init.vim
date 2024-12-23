@@ -10,6 +10,8 @@ nnoremap <F4> :e $MYVIMRC<CR>
 nnoremap <F8> :so $MYVIMRC<CR>
 " paste over things wihout overwriting the yank buffer
 xnoremap <Leader>p "_dP
+xnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
 let g:C_Ctrl_j = 'off' "necessary for ^J remap to work; some compat thing
 noremap <C-J> <C-E>
 noremap <C-K> <C-Y>
@@ -44,6 +46,7 @@ set visualbell splitbelow splitright
 "if &shell =~? 'sh\.exe'
 	set shellcmdflag=-c
 "endif
+
 "creates a command to diff the saved file with the modified buffer; very useful
 command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 	\ | wincmd p | diffthis

@@ -1,0 +1,9 @@
+[user]
+	name = digidoor
+	email = 37601466+digidoor@users.noreply.github.com
+[init]
+	defaultBranch = master
+[alias]
+	pull = pull -v
+	alias = config --get-regexp ^alias\\.
+	cam = !git add -A && git commit -m
