@@ -17,6 +17,7 @@ alias lf=lfcd
 alias vim=nvim
 alias hx=helix
 alias cat=lolcat
+alias fl='fc -l'
 alias view='nvim -R'
 alias svim='sudo nvim'
 alias b='cd ${OLDPWD}'
@@ -84,7 +85,6 @@ exit_status() {
 	fi
 }
 #PS1='$(exit_status)\e[96;1m\u\e[0m@\e[96;1m\h \e[34m\w\e[0m\e[35m$(__git_ps1 ) \e[93;1m\\$\e[0m\n'
-PROMPT_COMMAND='exit_status; PS1="\e[96;1m\u\e[0m@\e[96;1m\h \e[34m\w\e[0m\e[35m$(__git_ps1 ) \e[93;1m\\$\e[0m\n"'
+PROMPT_COMMAND='exit_status; PS1="\e[92;1m\u\e[0m@\e[92;1m\h \e[34m\w\e[0m\e[35m$(__git_ps1 ) \e[93;1m\\$\e[0m\n"'
 
-
-# a simple change to test git stuff
+eval "$(dircolors ~/.dircolors)"
