@@ -2,7 +2,7 @@
 " you always forget that :noh turns off highlighting of the last search
 set nocompatible mouse=a wildmenu incsearch
 let g:netrw_liststyle = 3
-nnoremap <Space> <NOP>
+nnoremap <silent> <Space> <NOP>
 let mapleader = " "
 nnoremap <Leader>w <C-W>
 nnoremap <Leader>f :Lex<CR>
@@ -45,13 +45,14 @@ set visualbell splitbelow splitright
 
 "try to fix nvim external commands it bash4windows/gitbash-spawned nvim
 "if &shell =~? 'sh\.exe'
-	set shellcmdflag=-c
+"	set shellcmdflag=-c
 "endif
 
 "creates a command to diff the saved file with the modified buffer; very useful
 command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 	\ | wincmd p | diffthis
 "^ if the first nonwsp char is '\', treat it as a continuation of the prv line
+nnoremap <Leader>d <Cmd>DiffOrig<CR>
 
 " MISCELLANEOUS GOODIES
 " :verbose set tw? --> discover what autowrap lengths that faghag bram has set
@@ -60,7 +61,7 @@ command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 " set lines=60
 " set columns=100
 
-colorscheme default
+"colorscheme default
 " -------------- Fonts ------------------
 "set guifont=RobotoMono\ NFM:h12 "very round, crisp, clean, fat for it's height
 set guifont=Iosevka\ NFM:h14:Medium "very tall and skinny, easy to read, clean.
@@ -83,7 +84,7 @@ set guifont=Iosevka\ NFM:h14:Medium "very tall and skinny, easy to read, clean.
 "call plug#end()
 
 if exists('g:neovide')
-	colorscheme bluewery
+"	colorscheme bluewery
 	:cd ~
 endif
 
