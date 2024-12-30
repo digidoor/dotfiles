@@ -8,11 +8,14 @@
 
 #env
 LESS=-RM
-LESS_TERMCAP_mb=\e[96;5m
-LESS_TERMCAP_md=\e[96m
+#LESS_TERMCAP_mb=\e[96;5m
+LESS_TERMCAP_mb=\e[95;6;5m
+#LESS_TERMCAP_md=\e[96m
+LESS_TERMCAP_md=\e[95m
 LESS_TERMCAP_me=\e[0m
-LESS_TERMCAP_so=\e[96;1;7m
+#LESS_TERMCAP_so=\e[96;1;7m
+LESS_TERMCAP_so=\e[95;1;9m
 LESS_TERMCAP_se=\e[0m
-LESS_TERMCAP_us=\e[34;2;3m
+LESS_TERMCAP_us=\e[92;2;3m
 LESS_TERMCAP_ue=\e[0m
 # GROFF_NO_SGR=1 # this is a general environment variable that needs to be in the shell rc
