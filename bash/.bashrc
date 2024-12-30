@@ -85,9 +85,5 @@ exit_status() {
 		echo -en "\e[91;5m$e\e[0m\e[90m|\e[0m"
 	fi
 }
-#PS1='$(exit_status)\e[96;1m\u\e[0m@\e[96;1m\h \e[34m\w\e[0m\e[35m$(__git_ps1 ) \e[93;1m\\$\e[0m\n'
-#PROMPT_COMMAND='exit_status; PS1="\[\e[92;1m\]\u\[\e[0m\]@\[\e[92;1m\]\h \[\e[34m\]\w\[\e[0m\]\[\e[35m\]$(__git_ps1 ) \[\e[93;1m\]\\$\[\e[0m\]\n"'
-#PS1='[\u@\h \W$(__git_ps1 " [%s)")]\$ '
-#PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 PROMPT_COMMAND='exit_status; __git_ps1 "\e[92m\u\e[0m@\e[92;1m\h \e[34m\w\e[0m\e[35m" " \e[93;1m\\\$\e[0m\n"'
 eval "$(dircolors ~/.dircolors)"
