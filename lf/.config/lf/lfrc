@@ -1,1 +1,4 @@
 cmd open $nvim $fx
+map J low
+map K high
+map H set hidden!

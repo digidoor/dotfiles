@@ -7,6 +7,7 @@ let mapleader = " "
 nnoremap <Leader>w <C-W>
 nnoremap <Leader>f :Lex<CR>
 nnoremap <Leader>l :set list!<CR>
+nnoremap <Leader>h :nohl<CR>
 nnoremap <F4> :e $MYVIMRC<CR>
 nnoremap <F8> :so $MYVIMRC<CR>
 " paste over things wihout overwriting the yank buffer
