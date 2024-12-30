@@ -22,6 +22,7 @@ alias view='nvim -R'
 alias svim='sudo nvim'
 alias b='cd ${OLDPWD}'
 alias diff='diff --color'
+alias tree='tree -I ".git"'
 alias r=ranger
 alias ranger='source ranger'
 alias grep='grep --color=auto'
