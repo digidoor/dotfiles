@@ -4,4 +4,4 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Other environment stuff
 #export BROWSER=vivaldi
-export BROWSER=falkon
+#export BROWSER=falkon
