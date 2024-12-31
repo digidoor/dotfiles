@@ -87,3 +87,5 @@ exit_status() {
 }
 PROMPT_COMMAND='exit_status; __git_ps1 "\e[92;1m\u\e[0m@\e[92;1m\h \e[34m\w\e[0m\e[35m" " \e[93;1m\\\$\e[0m\n"'
 eval "$(dircolors ~/.dircolors)"
+
+eval "$(starship init bash)"
