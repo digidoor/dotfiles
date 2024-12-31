@@ -1,1 +1,4 @@
 theme = dig
+font-size = 10
+adjust-cell-height = -2
+
