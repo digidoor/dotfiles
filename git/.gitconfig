@@ -3,7 +3,30 @@
 	email = 37601466+digidoor@users.noreply.github.com
 [init]
 	defaultBranch = master
+[core]
+	editor = nvim
+	pager = less
+[fetch]
+	verbose = true
+[commit]
+	verbose = true
+[pull]
+	verbose = true
+	rebase = true
+[merge]
+	ff = only
 [alias]
-	pull = pull -v
-	alias = config --get-regexp ^alias\\.
+	l = log --oneline
+	lg = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d %Creset%s %Cgreen(%cs)'
+	dif = diff --staged
 	cam = !git add -A && git commit -m
+	alias = config --get-regexp ^alias\\.
+	unstage = restore --staged
+	staash = stash -all
+	blamed = blame -w -C -C -C
+[pretty]
+	testformat = %h%x09%an%x09%ad%x09%s
+[log]
+#	decorate = full
+[rerere]
+	enabled = true
