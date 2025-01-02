@@ -5,7 +5,7 @@ rename_dumbdot_items() {
     
     # Process files and directories starting with "dot-"
     for item in "$dir"/dot-*; do
-	    if [[ -e "$item" && "$(basename "$item")" != ".git" ]]; then
+	    if [[ -e "$item" && "$(basename "$item")" != "dot-git" ]]; then
             local dir_name=$(dirname "$item")
             local base_name=$(basename "$item")
             local new_name=$(echo "$base_name" | sed 's/^dot-/\./')
@@ -18,7 +18,7 @@ rename_dumbdot_items() {
 
     # Recursively process subdirectories
     for subdir in "$dir"/*/; do
-        if [[ -d "$subdir" ]]; then
+        if [[ -d "$subdir" && "$(basename "$subdir")" != ".git" ]]; then
             rename_dumbdot_items "$subdir"
         fi
     done
