@@ -30,6 +30,7 @@ alias hx=helix
 alias cat=lolcat
 alias fl='fc -l'
 alias view='nvim -R'
+alias stow='stow -v'
 alias svim='sudo nvim'
 alias b='cd ${OLDPWD}'
 alias diff='diff --color'
