@@ -8,11 +8,22 @@
 alias ..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
-alias ls='ls -v --color=auto --group-directories-first'
-alias l='ls'
-alias la='ls -A'
-alias ll='ls -lh'
-alias lla='ls -lhA'
+if command -v eza &> /dev/null
+then
+	# Aliases using eza
+	alias ls='eza --color=auto --group-directories-first --icons'
+	alias l='ls'
+	alias la='l -A'
+	alias ll='l -lh'
+	alias lla='l -lhA'
+else
+	# Fallback aliases using ls
+	alias ls='ls -v --color=auto --group-directories-first'
+	alias l='ls'
+	alias la='l -A'
+	alias ll='l -lh'
+	alias lla='l -lhA'
+fi
 alias lf=lfcd
 alias vim=nvim
 alias hx=helix
@@ -51,11 +62,10 @@ lfcd () { # enables cd to last lf directory on exit
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-export EDITOR=vim
+export EDITOR=nvim
 export GROFF_NO_SGR=1  # This is necessary to get colors in less
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
-[[ "$(whoami)" = "root" ]] && return
 # PS1='[\u@\h \W]\$ '
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100   # limits recursive functions, see 'man bash'
 
@@ -88,4 +98,7 @@ exit_status() {
 PROMPT_COMMAND='exit_status; __git_ps1 "\e[92;1m\u\e[0m@\e[92;1m\h \e[34m\w\e[0m\e[35m" " \e[93;1m\\\$\e[0m\n"'
 eval "$(dircolors ~/.dircolors)"
 
+[[ "$(whoami)" = "root" ]] && return
+
 eval "$(starship init bash)"
+eval $(thefuck --alias)
