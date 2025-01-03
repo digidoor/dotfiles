@@ -16,6 +16,50 @@ function fish_prompt --description 'Write out the prompt'
         set suffix '#'
     end
 
+    # git stuff will hopefully work now
+#    set -g __fish_git_prompt_showdirtystate 1
+#    set -g __fish_git_prompt_showuntrackedfiles 1
+#    set -g __fish_git_prompt_showupstream informative
+#    set -g __fish_git_prompt_showcolorhints 1
+#    set -g __fish_git_prompt_use_informative_chars 1
+
+    set -q __fish_git_prompt_showdirtystate
+    or set -g __fish_git_prompt_showdirtystate 1
+    set -q __fish_git_prompt_showuntrackedfiles
+    or set -g __fish_git_prompt_showuntrackedfiles 1
+    set -q __fish_git_prompt_showstashstate
+    or set -g __fish_git_prompt_showstashstate 1
+    set -q __fish_git_prompt_showcolorhints
+    or set -g __fish_git_prompt_showcolorhints 1
+    set -q __fish_git_prompt_color_untrackedfiles
+    or set -g __fish_git_prompt_color_untrackedfiles yellow
+    set -q __fish_git_prompt_char_untrackedfiles
+    or set -g __fish_git_prompt_char_untrackedfiles '%'
+    set -q __fish_git_prompt_color_invalidstate
+    or set -g __fish_git_prompt_color_invalidstate red
+    set -q __fish_git_prompt_char_invalidstate
+    or set -g __fish_git_prompt_char_invalidstate '!'
+    set -q __fish_git_prompt_color_dirtystate
+    or set -g __fish_git_prompt_color_dirtystate blue
+    set -q __fish_git_prompt_char_dirtystate
+    or set -g __fish_git_prompt_char_dirtystate '*'
+    set -q __fish_git_prompt_char_stagedstate
+    or set -g __fish_git_prompt_char_stagedstate '+'
+    set -q __fish_git_prompt_color_cleanstate
+    or set -g __fish_git_prompt_color_cleanstate green
+    set -q __fish_git_prompt_char_cleanstate
+    or set -g __fish_git_prompt_char_cleanstate '✓'
+    set -q __fish_git_prompt_color_stagedstate
+    or set -g __fish_git_prompt_color_stagedstate yellow
+    set -q __fish_git_prompt_color_branch_dirty
+    or set -g __fish_git_prompt_color_branch_dirty red
+    set -q __fish_git_prompt_color_branch_staged
+    or set -g __fish_git_prompt_color_branch_staged yellow
+    set -q __fish_git_prompt_color_branch
+    or set -g __fish_git_prompt_color_branch green
+    set -q __fish_git_prompt_char_stateseparator
+    or set -g __fish_git_prompt_char_stateseparator ''
+
     # Write pipestatus
     # If the status was carried over (if no command is issued or if `set` leaves the status untouched), don't bold it.
     set -l bold_flag --bold
@@ -28,5 +72,5 @@ function fish_prompt --description 'Write out the prompt'
     set -l statusb_color (set_color $bold_flag $fish_color_status)
     set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
 
-    echo -s -e $prompt_status (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal (set_color magenta) (fish_vcs_prompt) " " (set_color bryellow --bold) $suffix "\n"
+    echo -s -e $prompt_status (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) " " (set_color bryellow --bold) $suffix "\n"
 end
