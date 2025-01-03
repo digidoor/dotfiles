@@ -6,6 +6,7 @@
 [[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
 
 alias ..='cd ..'
+alias cd..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
 if command -v eza &> /dev/null
