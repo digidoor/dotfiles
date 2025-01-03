@@ -102,5 +102,5 @@ eval "$(dircolors ~/.dircolors)"
 
 [[ "$(whoami)" = "root" ]] && return
 
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 eval $(thefuck --alias)
