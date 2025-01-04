@@ -16,23 +16,21 @@ function fish_prompt --description 'Write out the prompt'
         set suffix '#'
     end
 
-    # git stuff will hopefully work now
-#    set -g __fish_git_prompt_showdirtystate 1
-#    set -g __fish_git_prompt_showuntrackedfiles 1
-#    set -g __fish_git_prompt_showupstream informative
-#    set -g __fish_git_prompt_showcolorhints 1
-#    set -g __fish_git_prompt_use_informative_chars 1
+	# change the following arg to "informative" and it will give counts
+#    set -g __fish_git_prompt_showupstream 1
+    set -g __fish_git_prompt_showupstream informative
+    set -g __fish_git_prompt_use_informative_chars 1
 
-    set -q __fish_git_prompt_showdirtystate
-    or set -g __fish_git_prompt_showdirtystate 1
-    set -q __fish_git_prompt_showuntrackedfiles
-    or set -g __fish_git_prompt_showuntrackedfiles 1
-    set -q __fish_git_prompt_showstashstate
-    or set -g __fish_git_prompt_showstashstate 1
-    set -q __fish_git_prompt_showcolorhints
-    or set -g __fish_git_prompt_showcolorhints 1
-    set -q __fish_git_prompt_color_untrackedfiles
-    or set -g __fish_git_prompt_color_untrackedfiles yellow
+#    set -q __fish_git_prompt_showdirtystate
+#    or set -g __fish_git_prompt_showdirtystate 1
+#    set -q __fish_git_prompt_showuntrackedfiles
+#    or set -g __fish_git_prompt_showuntrackedfiles 1
+#    set -q __fish_git_prompt_showstashstate
+#    or set -g __fish_git_prompt_showstashstate 1
+#    set -q __fish_git_prompt_showcolorhints
+#    or set -g __fish_git_prompt_showcolorhints 1
+#    set -q __fish_git_prompt_color_untrackedfiles
+#    or set -g __fish_git_prompt_color_untrackedfiles yellow
     set -q __fish_git_prompt_char_untrackedfiles
     or set -g __fish_git_prompt_char_untrackedfiles '%'
     set -q __fish_git_prompt_color_invalidstate
