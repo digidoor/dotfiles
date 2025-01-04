@@ -1,3 +1,6 @@
-README.md
-.git
-
+^/README.*
+^/rename_dot_items.sh
+^/rename_dumbdot_items.sh
+\.git
+\.gitignore
+\.jj
