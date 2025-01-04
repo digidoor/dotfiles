@@ -3,3 +3,5 @@ if status is-interactive
 end
 
 thefuck --alias | source
+jj util completion fish | source
+

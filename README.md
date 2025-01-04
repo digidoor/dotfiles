@@ -4,6 +4,9 @@ The folder structure is such that symlinks can be automatically made using GNU s
 > [!CAUTION]
 > To stow everything at once you ${\color{red}MUST}$ use `stow */ --dotfiles` (instead of `stow * --dotfiles` or `stow . --dotfiles`) or stow will shit itself on loose files such as README.md. We use the convenient `--dotfiles` option so that the repo doesn't contain any hidden files to hide from `ls` or `tree` (and instead has files named `dot-bashrc` which are converted to real dotfiles by stow's --dotfiles option).
 
+> [!NOTE]
+> We seem to have fixed the issue with needing to type the long --dotfiles option every time by having a `--dotfiles` line in .stowrc, however stow must still be ran as `stow */` as far as I can see. Not going to waste any more time with it now.
+
 Just delete the few AutoHotkey and JPEGView links manually or run `stow -D AutoHotkey JPEGView` after running `stow */ --dotfiles` on Linux systems.
 
 ## Helix
