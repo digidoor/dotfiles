@@ -99,3 +99,5 @@ endif
 set sessionoptions+=options "for saving sessions
 set fileformats=unix,dos " prefer unix line endings
 ]])
+
+require("config.lazy")
