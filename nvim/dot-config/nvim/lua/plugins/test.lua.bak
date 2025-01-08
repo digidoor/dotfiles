@@ -1,0 +1,6 @@
+--[[ hello = "hello"
+help = [
+function()
+	some stuff
+end
+--]]

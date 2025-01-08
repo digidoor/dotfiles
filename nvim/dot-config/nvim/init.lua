@@ -1,3 +1,6 @@
+vim.opt.cursorline = true 
+-- leave a line with trailing spaces at the beginning to quickly see if hte lsp is on
+
 vim.cmd([[
 " Neovim init file. Likely in ~/AppData/Local/nvim/init.vim
 " you always forget that :noh turns off highlighting of the last search
@@ -85,7 +88,7 @@ set guifont=Iosevka\ NFM:h14:Medium "very tall and skinny, easy to read, clean.
 "	Plug 'rktjmp/lush.vim'
 "call plug#end()
 
-if exists('g:neovide')
+if exists('g:neovide') 
 "	colorscheme bluewery
 	:cd ~
 endif
@@ -100,8 +103,6 @@ set sessionoptions+=options "for saving sessions
 set fileformats=unix,dos " prefer unix line endings
 ]])
 
-vim.opt.cursorline = true
-
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
 	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -110,5 +111,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	end,
 })
 
-vim.keymap.set("v", "<Leader>x", ":lua<CR>")
-require("config.lazy")
+vim.keymap.set("v", "<Leader>x", ":lua<CR>") 
+require("config.lazy") 
+

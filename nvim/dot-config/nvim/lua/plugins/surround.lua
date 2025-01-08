@@ -1,5 +1,10 @@
 -- plugins/surround.lua
 return 
 {
-	{ 'echasnovski/mini.surround', version = '*', opts = {} },
+	{
+		'echasnovski/mini.surround',
+		-- enabled = false,
+		version = '*',
+		opts = {}
+	},
 }
