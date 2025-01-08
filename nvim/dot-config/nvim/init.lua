@@ -109,5 +109,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.keymap.set("v", "<Leader>x", ":lua<CR>")
-print("This is only a test.")
 require("config.lazy")
