@@ -100,4 +100,14 @@ set sessionoptions+=options "for saving sessions
 set fileformats=unix,dos " prefer unix line endings
 ]])
 
+vim.api.nvim_create_autocmd('TextYankPost', {
+	desc = 'Highlight when yanking (copying) text',
+	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
+vim.keymap.set("v", "<Leader>x", ":lua<CR>")
+print("This is only a test.")
 require("config.lazy")
