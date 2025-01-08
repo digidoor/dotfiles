@@ -100,6 +100,8 @@ set sessionoptions+=options "for saving sessions
 set fileformats=unix,dos " prefer unix line endings
 ]])
 
+vim.opt.cursorline = true
+
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
 	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
