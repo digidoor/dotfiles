@@ -1,5 +1,5 @@
 -- plugins/ui.lua
-return
+return 
 {
 	{
 		'nvim-lualine/lualine.nvim',

@@ -1,5 +1,5 @@
 -- plugins/which.lua
-return
+return 
 {
 	{
 		"folke/which-key.nvim",

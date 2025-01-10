@@ -1,5 +1,5 @@
 -- plugins/indent.lua
-return
+return 
 {
 	{
     	"lukas-reineke/indent-blankline.nvim", 
