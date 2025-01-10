@@ -51,8 +51,6 @@ local toggle_terminal = function()
 		state.floating = create_floating_window({ buf = state.floating.buf })
 		if vim.bo[state.floating.buf].buftype ~= "terminal" then
 			vim.cmd.terminal()
-		else
-			print("You was already a term.")
 		end
 	end
 	vim.cmd('normal i')
