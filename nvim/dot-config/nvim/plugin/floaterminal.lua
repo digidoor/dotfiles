@@ -43,15 +43,17 @@ local function create_floating_window(opts)
 end
 
 local toggle_terminal = function()
-	if not vim.api.nvim_win_is_valid(state.floating.win) then
+	if vim.api.nvim_win_is_valid(state.floating.win) then
+		vim.api.nvim_win_hide(state.floating.win)
+	else
 		-- note that the argument to c_f_w is not an assignment but rather
 		-- a table with a single key-value pair, the key being "buf"
 		state.floating = create_floating_window({ buf = state.floating.buf })
 		if vim.bo[state.floating.buf].buftype ~= "terminal" then
 			vim.cmd.terminal()
+		else
+			print("You was already a term.")
 		end
-	else
-		vim.api.nvim_win_hide(state.floating.win)
 	end
 	vim.cmd('normal i')
 end
