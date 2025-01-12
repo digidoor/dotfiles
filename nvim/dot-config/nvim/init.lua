@@ -21,8 +21,8 @@ nnoremap <Leader>p "+p
 let g:C_Ctrl_j = 'off' "necessary for ^J remap to work; some compat thing
 noremap <C-J> <C-E>
 noremap <C-K> <C-Y>
-inoremap jk <Esc>
-inoremap kj <Esc>
+"inoremap jk <Esc>
+"inoremap kj <Esc>
 noremap j gj
 noremap k gk
 
@@ -120,7 +120,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 })
 
 local job_id = 0
-vim.keymap.set("n", "<Space>st", function()
+vim.keymap.set("n", "<Leader>bt", function()
 	vim.cmd.new()
 	vim.cmd.term()
 	vim.cmd.wincmd("J")
@@ -128,7 +128,7 @@ vim.keymap.set("n", "<Space>st", function()
 	job_id = vim.bo.channel
 end)
 
-vim.keymap.set("n", "<space>io", function()
+vim.keymap.set("n", "<Leader>io", function()
 	-- make
 	-- jj new
 	-- gcc -o project -c project.c
