@@ -1,13 +1,15 @@
 -- plugins/comment.lua
 -- FIX: something
+-- error: something
 -- TODO: something
--- HACK: hack color
+-- HACK: hack color   󰈸  󱗗  󱠇   
 -- WARN: something something  
+-- warn: something
 -- PERF: something
 -- NOTE: something
--- TEST: test color
--- WARN: 
--- maybe: this is a test
+-- note: something
+-- TEST: something
+-- maybe: something
 return 
 {
 	{
@@ -36,16 +38,16 @@ return
 				FIX = {
 					icon = " ", -- icon used for the sign, and in search results
 					color = "error", -- can be a hex color, or a named color (see below)
-					alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+					alt = { "ERROR", "error", "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
 						-- signs = false, -- configure signs for some keywords individually
 					},
 				TODO = { icon = " ", color = "info" },
-				HACK = { icon = "󰈸 ", color = "warning" },
-				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+				HACK = { icon = " ", color = "warning" },
+				WARN = { icon = " ", color = "#F79925", alt = { "warn", "WARNING", "XXX" } },
 				PERF = { icon = "󰅒 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-				NOTE = { icon = "󰍩 ", color = "hint", alt = { "INFO" } },
+				NOTE = { icon = "󰍩 ", color = "#44FF11", alt = { "note", "INFO" } },
 				TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-				maybe = { icon = " ", color = "info", },
+				maybe = { icon = " ", color = "#EB17E4", },
 			},
 			gui_style = {
 				fg = "NONE", -- The gui style to use for the fg highlight group.

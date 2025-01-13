@@ -9,7 +9,7 @@ let g:netrw_liststyle = 3
 nnoremap <silent> <Space> <NOP>
 let mapleader = " "
 nnoremap <Leader>w <C-W>
-nnoremap <Leader>f :Lex<CR>
+"nnoremap <Leader>f :Lex<CR>
 nnoremap <Leader>l :set list!<CR>
 nnoremap <Leader>h :nohl<CR>
 nnoremap <F4> :e $MYVIMRC<CR>
