@@ -28,18 +28,18 @@ return
 
 			require('telescope').load_extension('fzf')
 
-			vim.keymap.set("n", "<Leader>fh", require('telescope.builtin').help_tags)
-			vim.keymap.set("n", "<Leader>ff", require('telescope.builtin').find_files)
+			vim.keymap.set("n", "<Leader>fh", require('telescope.builtin').help_tags, { desc = "find help docs", silent = true, noremap = true })
+			vim.keymap.set("n", "<Leader>ff", require('telescope.builtin').find_files, { desc = "find files", silent = true, noremap = true })
 			vim.keymap.set("n", "<Leader>fi", function()
 				require('telescope.builtin').find_files {
 					cwd = vim.fn.stdpath("config")
 				}
-			end)
+			end, { desc = "find nvim init fiiles", silent = true, noremap = true })
 			vim.keymap.set("n", "<Leader>fp", function()
 				require('telescope.builtin').find_files {
 					cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
 				}
-			end)
+			end, { desc = "find plugin files", silent = true, noremap = true })
 
 			require("config.telescope.multigrep").setup()
 		end,

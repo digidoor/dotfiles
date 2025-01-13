@@ -126,7 +126,7 @@ vim.keymap.set("n", "<Leader>bt", function()
 	vim.cmd.wincmd("J")
 	vim.api.nvim_win_set_height(0, 10)
 	job_id = vim.bo.channel
-end)
+end, { desc = "open Bottom Terminal", silent = true, noremap = true })
 
 vim.keymap.set("n", "<Leader>io", function()
 	-- make

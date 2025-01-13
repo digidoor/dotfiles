@@ -51,7 +51,7 @@ local live_multigrep = function(opts)
 end
 
 M.setup = function()
-	vim.keymap.set("n", "<Leader>fg", live_multigrep)
+	vim.keymap.set("n", "<Leader>fg", live_multigrep, { desc = "find by grep", silent = true, noremap = true })
 	-- live_multigrep()
 end
 
