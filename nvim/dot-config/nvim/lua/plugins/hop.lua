@@ -5,7 +5,7 @@ return
 		'smoka7/hop.nvim',
 		version = "*",
 		opts = {
-			keys = 'etovqpdygfblhckisuranETOVQPDYGFBLHCKISURAN'
+			keys = 'jfdkeruislatovnghywmcqpb',
 		},
 		config = function(_, opts)
 			-- place this in one of your configuration file(s)

@@ -11,8 +11,7 @@ return
 			},
 		config = function()
 			vim.keymap.set("n", "<Leader>r", ":Neotree toggle<CR>", { desc = "Neotree toggle", silent = true, noremap = true })
-			-- NOTE: perplixityAI recommends the following:
-			-- vim.keymap.set("n", "<Leader>r", ":Neotree<CR>", { silent = true, noremap = true })
+			-- NOTE: to go up a directory, use <Backspace>
 		end,
 	},
 }

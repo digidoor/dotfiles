@@ -16,6 +16,10 @@ hidden = false # show hidden files or don't in the file-picker
 [editor.soft-wrap]
 enable=true
 
+[keys.normal]
+D = ["extend_to_line_end", "delete_selection"]
+C = ["extend_to_line_end", "delete_selection", "insert_mode"]
+
 [keys.insert]
 j = { k = "normal_mode" } # maps `jk` to exit insert mode
 k = { j = "normal_mode" } # maps `kj` to exit insert mode

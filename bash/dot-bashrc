@@ -17,6 +17,10 @@ then
 	alias la='l -A'
 	alias ll='l -lh'
 	alias lla='l -lhA'
+	alias tree='l -T --git-ignore'
+	alias treea='tree -A'
+	alias treec='tree --color=always | bat'
+	alias treeac='treea --color=always | bat'
 else
 	# Fallback aliases using ls
 	alias ls='ls -v --color=auto --group-directories-first'
@@ -24,6 +28,10 @@ else
 	alias la='l -A'
 	alias ll='l -lh'
 	alias lla='l -lhA'
+	alias tree='tree -I ".git"'
+	alias treea='tree -a'
+	alias treec='tree -C | bat'
+	alias treeac='treea -C | bat'
 fi
 alias lf=lfcd
 alias vim=nvim
@@ -31,12 +39,10 @@ alias hx=helix
 alias cat=lolcat
 alias fl='fc -l'
 alias view='nvim -R'
-alias stow='stow -v'
+#alias stow='stow -v' # I believe we take care of this in .stowrc
 alias svim='sudo nvim'
 alias b='cd ${OLDPWD}'
 alias diff='diff --color'
-alias tree='tree -I ".git"'
-alias treec='tree -C | bat'
 alias r=ranger
 alias ranger='source ranger'
 alias grep='grep --color=auto'
@@ -51,7 +57,17 @@ alias fort='fortune | cowsay | lolcat -a -d 12 -s 60'
 alias packs="pacman -Qqe | expac -t='%s%t%c' '%-30n\t%l\t%w' | grep explicit |
 	sort -k4 | cut -f1,3"
 
-cd() {
+# yazi should change directories to wherever we were when we exited
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+cd() { # make cd also call ls or the eza equivalent after changing directory
 	builtin cd "$@" && l
 }
 
@@ -91,6 +107,7 @@ _open_files_for_editing() {
 ## Alias for the function above.
 alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 
+# prompt stuff
 source ~/.git-prompt.sh
 exit_status() {
 	local e=$?
@@ -99,9 +116,10 @@ exit_status() {
 	fi
 }
 PROMPT_COMMAND='exit_status; __git_ps1 "\e[92;1m\u\e[0m@\e[92;1m\h \e[34m\w\e[0m" " \e[93;1m\\\$\e[0m\n"'
+
 eval "$(dircolors ~/.dircolors)"
+#eval "$(starship init bash)"
+eval $(thefuck --alias)
 
 [[ "$(whoami)" = "root" ]] && return
 
-#eval "$(starship init bash)"
-eval $(thefuck --alias)
