@@ -2,6 +2,14 @@
 return 
 {
 	{
+		"williamboman/mason.nvim",
+		opts = { log_level = vim.log.levels.DEBUG },
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		opts = {},
+	},
+	{
 		'neovim/nvim-lspconfig',
 		enabled = true,
 		dependencies = {
@@ -20,9 +28,10 @@ return
 		config = function()
 			require('lspconfig').lua_ls.setup {
 				settings = {
-					Lua = { hint = { arrayIndex = "Enabled" } }
+					Lua = { hint = { arrayIndex = "Enabled" } } -- warn: this doesn't seem to work
 				}
 			}
+			require('lspconfig').clangd.setup{}
 			-- require('lspconfig').lua_ls.setup {
 			-- 	on_init = function(client)
 			-- 		if client.workspace_folders then
