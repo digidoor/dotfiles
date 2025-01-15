@@ -38,14 +38,14 @@ return
 				FIX = {
 					icon = " ", -- icon used for the sign, and in search results
 					color = "error", -- can be a hex color, or a named color (see below)
-					alt = { "ERROR", "error", "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+					alt = { "ERROR", "error", "FIXME", "bug", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
 						-- signs = false, -- configure signs for some keywords individually
 					},
 				TODO = { icon = " ", color = "info" },
 				HACK = { icon = " ", color = "warning" },
 				WARN = { icon = " ", color = "#F79925", alt = { "warn", "WARNING", "XXX" } },
 				PERF = { icon = "󰅒 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-				NOTE = { icon = "󰍩 ", color = "#44FF11", alt = { "note", "INFO" } },
+				NOTE = { icon = "󰍩 ", color = "#44FF11", alt = { "note", "INFO", "info" } },
 				TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 				maybe = { icon = " ", color = "#EB17E4", },
 			},

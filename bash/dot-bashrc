@@ -123,3 +123,4 @@ eval $(thefuck --alias)
 
 [[ "$(whoami)" = "root" ]] && return
 
+export PATH="$HOME/bin:$PATH"
